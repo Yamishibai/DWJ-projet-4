@@ -1,0 +1,1 @@
+var myPost = new Post();
