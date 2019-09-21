@@ -2,11 +2,8 @@
 
 namespace Blog\Entities;
 
-
 class Comment
 {
-
-
     private $idComment;
 
     private $idBillet;
@@ -16,6 +13,8 @@ class Comment
     private $commentaire;
 
     private $date_comment;
+
+    private $signalement;
 
     public function __construct(array $cols = [])
     {
@@ -59,13 +58,24 @@ class Comment
         return $this->date_comment;
     }
 
+    public function getSignalement(): int
+    {
+        return $this->signalement;
+    }
+
     public function setIdComment(int $value): void
     {
         $this->idComment = $value;
     }
+
     public function setIdBillet(int $value): void
     {
         $this->idBillet = $value;
+    }
+
+    public function setSignalement(int $value): void
+    {
+        $this->signalement = $value;
     }
 
     public function setPseudo(string $value): void

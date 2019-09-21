@@ -1,1 +1,1 @@
-var myPost = new Post();
+var myErrorPostComment = new ErrorPostComment();

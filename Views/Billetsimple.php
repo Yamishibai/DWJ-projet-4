@@ -1,89 +1,85 @@
-<title> <?php echo $title = $billet->getTitre(); ?></title>
+<?php $title = $billet->getTitre(); ?>
+
 
 <?php ob_start(); ?>
 
- <!-- Page Content -->
- <div class="container">
+<!-- Page Contenu -->
+<div class="container">
 
-<div class="row">
+  <div class="row">
 
-  <!-- Post Content Column -->
-  <div class="col-lg-12">
-    <!-- Title -->
-    <h1 class="mt-4"> <?= $billet->getTitre(); ?>
-    </h1>
-    <hr>
+    <!-- Post Contenu Billet-->
+    <div class="col-lg-12">
+      <!-- Title -->
+      <h1 class="mt-4"> <?= $billet->getTitre(); ?>
+      </h1>
+      <hr>
 
-    <!-- Date/Time -->
-    <p>Posté le : <?= $billet->getDateBillet(); ?></p>
+      <!-- Date/Time -->
+      <p>Posté le : <?= $billet->getDateBillet(); ?></p>
 
-    <hr>
+      <hr>
 
-    <p><?php echo $billet->getContenu() ?></p>
+      <?php echo $billet->getContenu() ?>
 
-  </div>
-  </div>
-</div>
-
-
-
-<div class="card my-4">
-<h5 class="card-header">Leave a Comment:</h5>
-
-<div class="card-body">
-
-  <form action="index.php?controller=billet&action=ajouteCommentaire&amp;idBillet=<?= $billet->getIdBillet(); ?>" method="post">
-  
-  <div class="form-group">
-
-  <p class="error-post"> Veuillez remplir le champ Pseudo et Commentaire </p>
-  <p class="error-pseudo"> Veuillez remplir le champ Pseudo  </p>
-  <p class="error-commentaire"> Veuillez remplir le champ Commentaire  </p>
-
-
-    <label for="pseudo">Pseudo :</label>
-    <input type="text" class="form-control" id="pseudo" name="pseudo" />
-
-    <label for="commentaire">Commentaire :</label>
-    <textarea class="form-control" rows="3" id="commentaire" name="commentaire" rows="6" cols="35" placeholder="Votre message ici."></textarea>
     </div>
+  </div>
+</div>
 
-    <button id="submitComment" type="submit" class="btn btn-primary">Poster</button>
 
-  </form>
+<div class="card my-4 mr-5 ml-5">
+  <h5 class="card-header">Laisser un commentaire :</h5>
+
+  <div class="card-body">
+
+    <form action="index.php?controller=billet&action=ajouteCommentaire&amp;idBillet=<?= $billet->getIdBillet(); ?>" method="post">
+
+      <div class="form-group">
+
+        <p class="error-post p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Pseudo et Commentaire </p>
+        <p class="error-pseudo p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Pseudo</p>
+        <p class="error-commentaire p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Commentaire</p>
+
+
+        <label for="pseudo">Pseudo :</label>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" />
+
+        <label for="commentaire" class="mt-2">Commentaire :</label>
+        <textarea class="form-control" rows="3" id="commentaire" name="commentaire" placeholder="Votre commentaire ici."></textarea>
+      </div>
+
+      <button id="submitComment" type="submit" class="btn btn-primary">Poster</button>
+
+    </form>
   </div>
 
 </div>
- 
-
-
 
 
 <?php foreach ($comments as $comment) : ?>
 
 
- <!-- Single Comment -->
- <div class="media mb-4">
-          <div class="media-body">
-            <h5 class="mt-0"><?= htmlspecialchars($comment->getPseudo()); ?></h5>
-            <?= htmlspecialchars($comment->getCommentaire());?>
-            <br> 
-            <i>Posté le <?= htmlspecialchars($comment->getDateComment());?></i>
-            
-          </div>
-        </div>
+  <!-- Single Comment -->
+  <div class="media mb-4 ml-5">
+    <div class="media-body">
+      <h5 class="mt-0"><?= htmlspecialchars($comment->getPseudo()); ?></h5>
+      <?= htmlspecialchars($comment->getCommentaire()); ?>
+      <br>
+      <i>Posté le <?= htmlspecialchars($comment->getDateComment()); ?></i>
+      <?php if ($comment->getSignalement()) {
+          ?>
+        <p>Ce commentaire a déjà été signalé</p>
+      <?php
+        } else {
+          ?>
+        <p><a href="<?= "index.php?controller=billet&action=commentReported&idComment=" . $comment->getIdComment(); ?>">signaler</a></p>
+      <?php
+        } ?>
+    </div>
+  </div>
 
 <?php endforeach; ?>
 
-
-
-
-
-
 <?php $content = ob_get_clean(); ?>
-
-
-
-
 
 <?php require('template.php'); ?>

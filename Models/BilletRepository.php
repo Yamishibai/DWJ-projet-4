@@ -27,7 +27,6 @@ class BilletRepository
 
     public function getBillet($idBillet): Billet
     {
-
         $request = $this->connection->request('SELECT  * FROM billet WHERE id_billet=?', [$idBillet]);
         $tmpBillet = $request->fetch();
 
@@ -41,17 +40,13 @@ class BilletRepository
     }
     public function addBillet($titre, $contenu)
     {
-
-
         $request = $this->connection->prepare('INSERT INTO billet(titre, contenu, date_billet) VALUES(?, ?,NOW())');
         $affectedLines = $request->execute(array($titre, $contenu));
 
         return $affectedLines;
     }
-    public function updateBillet($titre, $contenu,$idBillet)
+    public function updateBillet($titre, $contenu, $idBillet)
     {
-        
-
         $request = $this->connection->prepare('UPDATE billet SET titre= ? , contenu= ?  WHERE id_billet= ?', [$idBillet]);
         $affectedLines = $request->execute(array($titre, $contenu, $idBillet));
 
@@ -60,11 +55,8 @@ class BilletRepository
 
     public function deleteBillet($idBillet)
     {
-
-
         $request = $this->connection->prepare("DELETE FROM billet WHERE id_billet =?");
         $affectedLines = $request->execute(array($idBillet));
-        
 
         return $affectedLines;
     }

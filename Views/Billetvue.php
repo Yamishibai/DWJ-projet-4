@@ -21,15 +21,14 @@
 
         <hr>
 
-        <p><?= substr($billet->getContenu(), 0, 700); ?>... <em><a href="<?= "index.php?controller=billet&action=afficheBilletSimple&idBillet=" . $billet->getIdBillet(); ?>">Voir plus</a></p>
-  
+        <?= substr($billet->getContenu(), 0, 700); ?>... <a href="<?= "index.php?controller=billet&action=afficheBilletSimple&idBillet=" . $billet->getIdBillet(); ?>">Voir plus</a>
+
       </div>
-      </div>
+    </div>
   </div>
 
-    <?php endforeach; ?>
+<?php endforeach; ?>
 
+<?php $content = ob_get_clean(); ?>
 
-          <?php $content = ob_get_clean(); ?>
-
-          <?php require('template.php'); ?>
+<?php require('template.php'); ?>

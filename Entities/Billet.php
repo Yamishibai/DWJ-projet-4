@@ -2,12 +2,8 @@
 
 namespace Blog\Entities;
 
-
 class Billet
 {
-
-
-
     private $idBillet;
 
     private $titre;

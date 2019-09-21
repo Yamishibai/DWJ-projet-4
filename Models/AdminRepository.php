@@ -4,8 +4,6 @@ namespace Blog\Models;
 
 use Blog\Entities\Admin;
 
-
-
 class AdminRepository
 {
     private $connection;
@@ -14,7 +12,6 @@ class AdminRepository
     {
         $this->connection = $connection;
     }
-
 
     public function checkAdmin($pseudoAdmin, $loginAdmin)
     {
@@ -27,5 +24,3 @@ class AdminRepository
             return null;
     }
 }
-
-    

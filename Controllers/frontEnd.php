@@ -21,7 +21,6 @@ class frontEnd
         $billets = $this->billetRepository->getBillets();
         $comments = $this->commentRepository->getComments();
 
-
         return [
             'views' => __DIR__ . '/../Views/Billetvue.php',
             'billets' => $billets,
@@ -33,6 +32,7 @@ class frontEnd
     public function afficheBilletSimple($message = null): array
     {
         $idBillet = $_GET['idBillet'];
+
         $billet = $this->billetRepository->getBillet($idBillet);
         $comments = $this->commentRepository->getCommentsbyIdBillet($idBillet);
 
@@ -73,4 +73,16 @@ class frontEnd
         ];
     }
 
+    public function commentReported()
+    {
+        $idComment = isset($_GET['idComment']) ? $_GET['idComment'] : NULL;
+        $commentReported = $this->commentRepository->reportComment($idComment);
+        $comment = $this->commentRepository->getComments($idComment);
+
+        return [
+            'views' => __DIR__ . '/../Views/ReportCommentView.php',
+            'commentReported' => $commentReported,
+            'comment' => $comment,
+        ];
+    }
 }

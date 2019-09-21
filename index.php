@@ -1,7 +1,6 @@
 <?php
-if (!isset($_SESSION)) {// A mettre dans le menu pour l'echo en html et isset dans l'index.
+if (!isset($_SESSION)) { // A mettre dans le menu pour l'echo en html et isset dans l'index.
     session_start();
-   
 }
 // Autoloader
 spl_autoload_register(function (string $className) {
@@ -30,12 +29,7 @@ if ($controller == "billet") {
     $billetRepository = new BilletRepository($connection);
     $commentRepository = new CommentRepository($connection);
     $frontEnd = new frontEnd($billetRepository, $commentRepository);
-    /*if($action=="indexBillets"){
-        render($controlBillet->indexBillets());
-    }
-    elseif($action=="accueilLogin"){
-        render($controlBillet->accueilLogin());
-    }*/
+
     switch ($action) {
         case 'indexBillets':
             render($frontEnd->indexBillets());
@@ -46,15 +40,21 @@ if ($controller == "billet") {
             break;
 
         case 'afficheBilletSimple':
-            render($frontEnd->afficheBilletSimple());
+            if (empty($_GET["idBillet"])) {
+                render($frontEnd->error404());
+            } else {
+                render($frontEnd->afficheBilletSimple());
+            }
             break;
 
         case 'ajouteCommentaire':
             render($frontEnd->ajouteCommentaire());
             break;
-
+        case 'commentReported':
+            render($frontEnd->commentReported());
+            break;
         default:
-            render($frontEnd->error404()); // message d'erreur à faire.
+            render($frontEnd->error404());
             break;
     }
 } elseif ($controller == "backEnd") {
@@ -63,12 +63,15 @@ if ($controller == "billet") {
     }
     $billetRepository = new BilletRepository($connection);
     $adminRepository = new AdminRepository($connection);
-    $backEnd = new backEnd($adminRepository,$billetRepository);
+    $commentRepository = new CommentRepository($connection);
+
+    $backEnd = new backEnd($adminRepository, $billetRepository, $commentRepository);
     switch ($action) {
         case 'checkLogin':
             render($backEnd->checkLogin());
+
             break;
-        
+
         case 'logout':
             render($backEnd->logout());
             break;
@@ -79,23 +82,34 @@ if ($controller == "billet") {
             render($backEnd->effaceBillet());
             break;
 
-        case 'changeBillet':
-            render($backEnd->changeBillet());
-            break;
-
         case 'billetModifier':
             render($backEnd->billetModifier());
             break;
 
+        case 'changeBillet':
+            render($backEnd->changeBillet());
+            break;
+
         case 'createBillet':
-                render($backEnd->createBillet());
-                break;
+            render($backEnd->createBillet());
+            break;
+        case 'getCommentReported':
+            render($backEnd->getCommentReported());
+            break;
+        case 'deleteCommentReported':
+            render($backEnd->deleteCommentReported());
+            break;
+
+        case 'commentIgnored':
+            render($backEnd->commentIgnored());
+            break;
+
 
         default:
-            render($backEnd->error404()); // message d'erreur à faire.
+            render($backEnd->error404());
             break;
     }
-}else{
+} else {
     require("Views/404.php");
 }
 
@@ -110,42 +124,3 @@ function render(array $data = [])
         require $views;
     }
 }
-
-/*
-$controllers = [
-    'billet' => [
-        'instance' => function () use ($connection) {
-            $billetRepository = new BilletRepository($connection);
-            $commentRepository = new CommentRepository($connection);
-            $adminRepository = new AdminRepository($connection);
-            $controlBillet= new ControlBillet($billetRepository, $commentRepository,$adminRepository);
-            $backEnd= new BackEnd($adminRepository);
-            
-            return $controlBillet;
-        },
-        'actions' => [
-            'indexBillets',
-            'afficheBilletSimple',
-            'ajouteCommentaire',
-            'checkLogin',
-            'accueilLogin',
-            'logout',
-            'keeplogin',
-        ]
-    ],
-
-];
-
-$currentController = $controllers[$controller] ?? $controllers['billet'];
-$currentInstance = $currentController['instance']();
-
-
-
-
-if (in_array($action, $currentController['actions']) && method_exists($currentInstance, $action)) {
-    $data = $currentInstance->$action();
-    render($data);
-} else {
-    echo "erreur";
-}
-*/

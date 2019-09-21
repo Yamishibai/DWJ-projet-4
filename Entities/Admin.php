@@ -2,11 +2,8 @@
 
 namespace Blog\Entities;
 
-
 class Admin
 {
-
-
     private $idAdmin;
 
     private $pseudoAdmin;
