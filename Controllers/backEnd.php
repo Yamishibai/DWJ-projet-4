@@ -13,12 +13,6 @@ class backEnd
     private $billetRepository;
     private $commentRepository;
 
-
-
-
-
-
-
     public function __construct(AdminRepository $adminRepository, BilletRepository $billetRepository, CommentRepository $commentRepository)
     {
         $this->adminRepository = $adminRepository;

@@ -5,7 +5,7 @@
 
 <?php foreach ($billets as $billet) : ?>
   <!-- Page Content -->
-  <div class="container">
+  <div class="container mb-5">
 
     <div class="row">
 

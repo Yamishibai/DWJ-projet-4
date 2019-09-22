@@ -7,7 +7,7 @@
 
 
   <!-- Gestionnaire de commentaire -->
-  <div class="media mb-4 ml-5 mr-5 p-3 ">
+  <div class="media mb-4 ml-5 mr-5 p-3">
     <div class="media-body">
 
       <div class="bg-secondary text-white ">

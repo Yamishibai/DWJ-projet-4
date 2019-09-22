@@ -111,11 +111,6 @@
 
   <?= $content ?>
 
-  <footer class="py-5 mt-5 bg-dark ">
-    <div class="container">
-      <p class=" text-center text-white">Copyright &copy; Blog Jean Fortoche 2019</p>
-    </div>
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
