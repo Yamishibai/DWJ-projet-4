@@ -5,10 +5,11 @@
   <h5 class="card-header">Création du chapitre</h5>
   <div class="card-body">
     <form action="index.php?controller=backEnd&action=ajouteBillet" method="post">
+
       <label for="titre"><b> Titre :</b></label><br />
-      <input name="titre" id="titre" class="form-control" type="text" maxlength="150" />
+      <input name="titre" id="titre" class="form-control" type="text" maxlength="150"/>
       <label class="my-3" for="chapitre"><b> Chapitre :</b></label><br />
-      <textarea id="editor" name="chapitre"></textarea>
+      <textarea id="editor" name="chapitre" ></textarea>
       <input id="chapitre" class="my-3 btn btn-primary" type="submit" value="Envoyer" />
 
     </form>

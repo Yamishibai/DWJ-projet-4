@@ -10,15 +10,21 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="public/css/blog-post.css" rel="stylesheet">
+  <link rel="icon" href="public/images/icon-2727224_960_720" />
   <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
   <script>
+// on modal show, focus the editor
+
+
     tinymce.init({
       selector: '#editor',
       plugins: 'paste, image code',
       toolbar: 'undo redo | image code | bold italic | alignleft aligncenter alignright | styleselect',
 
+      
       // without images_upload_url set, Upload tab won't show up
       images_upload_url: 'upload.php',
+      
 
       // override default upload handler to simulate successful upload
       images_upload_handler: function(blobInfo, success, failure) {
@@ -117,7 +123,6 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="public/js/ErrorPostComment.js"></script>
   <script src="public/js/main.js"></script>
-
 </body>
 
 </html>

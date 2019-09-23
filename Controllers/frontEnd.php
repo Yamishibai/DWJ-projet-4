@@ -29,7 +29,7 @@ class frontEnd
         ];
     }
 
-    public function afficheBilletSimple($message = null): array
+    public function afficheBilletSimple(): array
     {
         $idBillet = $_GET['idBillet'];
 
@@ -40,7 +40,6 @@ class frontEnd
             'views' => __DIR__ . '/../Views/Billetsimple.php',
             'billet' => $billet,
             'comments' => $comments,
-            'message' => $message,
         ];
     }
 

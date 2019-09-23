@@ -30,7 +30,7 @@
 
     <form action="<?= "index.php?controller=backEnd&action=changeBillet&idBillet=" . $billet->getIdBillet(); ?>" method="post">
       <label for="change_titre"><strong> Titre :</strong></label><br />
-      <input name="change_titre" id="change_titre" class="form-control" type="text" maxlength="150" />
+      <input name="change_titre" id="change_titre" class="form-control" type="text" maxlength="150"/>
       <label class="my-3" for="change_chapitre"><strong>Texte :</strong></label>
       <textarea id="editor" name="change_chapitre"></textarea>
       <input id="change_chapitre" class="my-3  btn btn-success" type="submit" value="Changer" />

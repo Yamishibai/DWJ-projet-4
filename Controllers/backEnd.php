@@ -81,8 +81,8 @@ class backEnd
         $titre = $_POST["titre"];
         $contenu = $_POST["chapitre"];
         if (empty($titre) || empty($contenu)) {
-
-            return $this->checkLogin();
+            
+            return $this->createBillet();
         } else {
             $this->billetRepository->addBillet($titre, $contenu);
             return $this->checkLogin();

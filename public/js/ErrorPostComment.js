@@ -36,5 +36,10 @@ class ErrorPostComment {
             e.preventDefault();
 
         }.bind(this))
+
+        $("#editor").on("shown.bs.modal", function() {
+
+            tinyMCE.get("editor").focus();
+        });
     }
 }
