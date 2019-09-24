@@ -45,7 +45,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" onclick="return confirm('etes-vous sur de vouloir supprimer ce billet ?')" href="<?= "index.php?controller=backEnd&action=effaceBillet&idBillet=" . $billet->getIdBillet(); ?>">Effacer</a>
+                <a class="nav-link" onclick="return confirm('êtes-vous sur de vouloir supprimer ce billet ?')" href="<?= "index.php?controller=backEnd&action=effaceBillet&idBillet=" . $billet->getIdBillet(); ?>">Effacer</a>
               </li>
             </ul>
           </div>
