@@ -24,7 +24,7 @@
         </button>
         <div class="collapse navbar-collapse navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" onclick="return confirm('etes-vous sur de vouloir supprimer ce commentaire ?')" href="<?= "index.php?controller=backEnd&action=deleteCommentReported&idComment=" . $commentReports->getIdComment(); ?>">Supprimer</a>
+            <a class="nav-item nav-link" onclick="return confirm('êtes-vous sur de vouloir supprimer ce commentaire ?')" href="<?= "index.php?controller=backEnd&action=deleteCommentReported&idComment=" . $commentReports->getIdComment(); ?>">Supprimer</a>
             <a class="nav-item nav-link" href="<?= "index.php?controller=backEnd&action=commentIgnored&idComment=" . $commentReports->getIdComment(); ?>">Ignorer</a>
           </div>
         </div>
