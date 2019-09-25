@@ -1,6 +1,6 @@
 <?php
 // Allowed origins to upload images
-$accepted_origins = array("http://localhost");
+$accepted_origins = array("http://blogfortoche.franceserv.com");
 
 // Images upload path
 $imageFolder = "public/images/";
