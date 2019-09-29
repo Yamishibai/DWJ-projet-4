@@ -1,10 +1,7 @@
 <?php
 
-namespace Blog\Models;
 
 
-use PDO;
-use PDOStatement;
 
 class Connection extends PDO
 {

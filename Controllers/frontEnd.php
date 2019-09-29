@@ -1,11 +1,6 @@
 <?php
 
-namespace Blog\Controllers;
-
-use Blog\Models\BilletRepository;
-use Blog\Models\CommentRepository;
-
-class frontEnd
+class FrontEnd
 {
     private $billetRepository;
     private $commentRepository;

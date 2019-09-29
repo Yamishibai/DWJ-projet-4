@@ -1,8 +1,8 @@
 <?php
 
-namespace Blog\Entities;
 
-class Billet
+
+class Billet extends AbstractEntity
 {
     private $idBillet;
 
@@ -12,25 +12,7 @@ class Billet
 
     private $date_billet;
 
-    public function __construct(array $cols = [])
-    {
-        $this->hydrate($cols);
-    }
-
-
-    public function hydrate(array $cols = [])
-    {
-        foreach ($cols as $name => $value) {
-
-            $methodName = 'set' . str_replace('_', '', ucwords($name, '_'));
-
-            if (method_exists($this, $methodName)) {
-
-                $this->$methodName($value);
-            }
-        }
-    }
-
+    
 
     public function getIdBillet(): int
     {

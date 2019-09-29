@@ -1,12 +1,6 @@
 <?php
 
-namespace Blog\Controllers;
-
-use Blog\Models\AdminRepository;
-use Blog\Models\BilletRepository;
-use Blog\Models\CommentRepository;
-
-class backEnd
+class BackEnd
 {
 
     private $adminRepository;
@@ -84,8 +78,10 @@ class backEnd
             
             return $this->createBillet();
         } else {
+           
             $this->billetRepository->addBillet($titre, $contenu);
             return $this->checkLogin();
+            
         }
     }
 
@@ -98,7 +94,7 @@ class backEnd
         return [
             'views' => __DIR__ . '/../Views/Admincrudview.php',
             'deleteBillet' => $deleteBillet,
-            'billets' => $billets
+            'billets' => $billets,
         ];
     }
     public function billetModifier(): array

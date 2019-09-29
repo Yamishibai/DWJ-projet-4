@@ -1,8 +1,6 @@
 <?php
 
-namespace Blog\Models;
 
-use Blog\Entities\Billet;
 
 class BilletRepository
 {

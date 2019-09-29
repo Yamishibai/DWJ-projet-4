@@ -20,7 +20,8 @@
       selector: '#editor',
       plugins: 'paste, image code',
       toolbar: 'undo redo | image code | bold italic | alignleft aligncenter alignright | styleselect',
-
+    
+     
       
       // without images_upload_url set, Upload tab won't show up
       images_upload_url: 'upload.php',
@@ -114,7 +115,7 @@
   </nav>
 
 
-
+  
   <?= $content ?>
 
 
@@ -122,6 +123,7 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="public/js/ErrorPostComment.js"></script>
+  <script src="public/js/ErrorPostCreateUpdate.js"></script>
   <script src="public/js/main.js"></script>
 </body>
 

@@ -6,6 +6,9 @@
   <div class="card-body">
     <form action="index.php?controller=backEnd&action=ajouteBillet" method="post">
 
+
+    <div id="error_create"></div>
+
       <label for="titre"><b> Titre :</b></label><br />
       <input name="titre" id="titre" class="form-control" type="text" maxlength="150"/>
       <label class="my-3" for="chapitre"><b> Chapitre :</b></label><br />

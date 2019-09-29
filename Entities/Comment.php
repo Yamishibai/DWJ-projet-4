@@ -1,8 +1,9 @@
 <?php
 
-namespace Blog\Entities;
 
-class Comment
+
+
+class Comment extends AbstractEntity
 {
     private $idComment;
 
@@ -16,24 +17,7 @@ class Comment
 
     private $signalement;
 
-    public function __construct(array $cols = [])
-    {
-        $this->hydrate($cols);
-    }
-
-
-    public function hydrate(array $cols = [])
-    {
-        foreach ($cols as $name => $value) {
-
-            $methodName = 'set' . str_replace('_', '', ucwords($name, '_'));
-
-            if (method_exists($this, $methodName)) {
-
-                $this->$methodName($value);
-            }
-        }
-    }
+   
 
 
     public function getIdComment(): int

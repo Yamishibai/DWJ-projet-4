@@ -1,32 +1,27 @@
 class ErrorPostComment {
     constructor() {
-        this.boxError = document.querySelector(".error-post");
-        this.boxError.style.display = "none";
-        this.boxErrorPseudo = document.querySelector(".error-pseudo");
-        this.boxErrorPseudo.style.display = "none";
-        this.boxErrorCommentaire = document.querySelector(".error-commentaire");
-        this.boxErrorCommentaire.style.display = "none";
-
+        this.boxError = document.getElementById("error_post");
 
         this.afficheErrorComment();
-
     }
 
     afficheErrorComment() {
 
         $("#submitComment").click(function(e) {
-            this.boxError.style.display = "none";
-            this.boxErrorPseudo.style.display = "none";
-            this.boxErrorCommentaire.style.display = "none";
+
 
             if ((document.getElementById("pseudo").value === "") && (document.getElementById("commentaire").value === "")) {
-                this.boxError.style.display = "block";
+                this.boxError.innerHTML = 'Veuillez remplir le champ Pseudo et Commentaire';
+                this.boxError.setAttribute("class", "error-post p-2 mb-2 bg-danger text-white rounded");
 
             } else if ((document.getElementById("pseudo").value === "")) {
-                this.boxErrorPseudo.style.display = "block";
+                this.boxError.innerHTML = 'Veuillez remplir le champ Pseudo';
+                this.boxError.setAttribute("class", "error-post p-2 mb-2 bg-danger text-white rounded");
 
             } else if ((document.getElementById("commentaire").value === "")) {
-                this.boxErrorCommentaire.style.display = "block";
+
+                this.boxError.innerHTML = 'Veuillez remplir le champ Commentaire';
+                this.boxError.setAttribute("class", "error-post p-2 mb-2 bg-danger text-white rounded");
 
             } else {
                 return true;
@@ -36,10 +31,5 @@ class ErrorPostComment {
             e.preventDefault();
 
         }.bind(this))
-
-        $("#editor").on("shown.bs.modal", function() {
-
-            tinyMCE.get("editor").focus();
-        });
     }
 }

@@ -1,8 +1,5 @@
 <?php
 
-namespace Blog\Models;
-
-use Blog\Entities\Admin;
 
 class AdminRepository
 {

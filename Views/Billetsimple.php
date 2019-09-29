@@ -36,9 +36,7 @@
 
       <div class="form-group">
 
-        <p class="error-post p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Pseudo et Commentaire </p>
-        <p class="error-pseudo p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Pseudo</p>
-        <p class="error-commentaire p-2 mb-2 bg-danger text-white rounded"> Veuillez remplir le champ Commentaire</p>
+        <div id="error_post"></div>
 
 
         <label for="pseudo">Pseudo :</label>

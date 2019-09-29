@@ -4,21 +4,17 @@ if (!isset($_SESSION)) { // A mettre dans le menu pour l'echo en html et isset d
 }
 // Autoloader
 spl_autoload_register(function (string $className) {
-    if (strpos($className, 'Blog\\') === 0) {
-        $className = str_replace('Blog\\', '', $className);
-        $className = str_replace('\\', '/', $className);
 
-        require __DIR__ . "/{$className}.php";
+    if (file_exists(__DIR__ . "/{$className}.php")) {
+        require_once(__DIR__ . "/{$className}.php");
+    } elseif (file_exists(__DIR__ . "/Entities/{$className}.php")) {
+        require_once(__DIR__ . "/Entities/{$className}.php");
+    } elseif (file_exists(__DIR__ . "/Models/{$className}.php")) {
+        require_once(__DIR__ . "/Models/{$className}.php");
+    } elseif (file_exists(__DIR__ . "/Controllers/{$className}.php")) {
+        require_once(__DIR__ . "/Controllers/{$className}.php");
     }
 });
-
-
-use Blog\Models\Connection;
-use Blog\Models\BilletRepository;
-use Blog\Controllers\frontEnd;
-use Blog\Controllers\backEnd;
-use Blog\Models\CommentRepository;
-use Blog\Models\AdminRepository;
 
 $connection = new Connection('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 
@@ -28,7 +24,7 @@ $action = $_REQUEST['action'] ?? 'indexBillets';
 if ($controller == "billet") {
     $billetRepository = new BilletRepository($connection);
     $commentRepository = new CommentRepository($connection);
-    $frontEnd = new frontEnd($billetRepository, $commentRepository);
+    $frontEnd = new FrontEnd($billetRepository, $commentRepository);
 
     switch ($action) {
         case 'indexBillets':
@@ -65,7 +61,7 @@ if ($controller == "billet") {
     $adminRepository = new AdminRepository($connection);
     $commentRepository = new CommentRepository($connection);
 
-    $backEnd = new backEnd($adminRepository, $billetRepository, $commentRepository);
+    $backEnd = new BackEnd($adminRepository, $billetRepository, $commentRepository);
     switch ($action) {
         case 'checkLogin':
             render($backEnd->checkLogin());
