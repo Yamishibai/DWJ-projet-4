@@ -69,7 +69,8 @@ if ($controller == "billet") {
             break;
 
         case 'logout':
-            render($backEnd->logout());
+            /*pas de render parce que la méthode recharge la page grace un header*/
+            $backEnd->logout();
             break;
         case 'ajouteBillet':
             render($backEnd->ajouteBillet());
