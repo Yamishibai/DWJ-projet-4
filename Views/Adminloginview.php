@@ -6,6 +6,8 @@
                 <h5 class="card-header">Formulaire de connexion</h5>
                 <div class="card-body">
                         <form action="index.php?controller=backEnd&action=checkLogin" method="post">
+                        <div id="error_password"></div>
+
                                 <label for="pseudoAdmin">Identifiant :</label> <input type="text" name="pseudoAdmin" class="form-control" id="pseudoAdmin" />
                                 <label for="loginAdmin">Mot de passe :</label> <input type="password" name="loginAdmin" class="form-control" id="loginAdmin" /><br />
 
