@@ -124,6 +124,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="public/js/ErrorPostComment.js"></script>
   <script src="public/js/ErrorPostCreateUpdate.js"></script>
+  <script src="public/js/ErrorPassword.js"></script>
   <script src="public/js/main.js"></script>
 </body>
 
