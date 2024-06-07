@@ -16,7 +16,7 @@ spl_autoload_register(function (string $className) {
     }
 });
 
-$connection = new Connection('mysql:host=xxx;dbname=xxx;charset=utf8', 'xxx', '');
+$connection = new Connection('mysql:host=xxxx;dbname=xxx;charset=utf8', 'xxx', '');
 
 $controller = $_REQUEST['controller'] ?? 'billet';
 $action = $_REQUEST['action'] ?? 'indexBillets';
@@ -65,7 +65,6 @@ if ($controller == "billet") {
     switch ($action) {
         case 'checkLogin':
             render($backEnd->checkLogin());
-
             break;
 
         case 'logout':

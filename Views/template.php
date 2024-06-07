@@ -11,7 +11,7 @@
   <!-- Custom styles for this template -->
   <link href="public/css/blog-post.css" rel="stylesheet">
   <link rel="icon" href="public/images/icon-2727224_960_720" />
-  <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/6s07m9tsg2yi108fpynkasl9ci1064w0ozcx5iowupa4aiw6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
 // on modal show, focus the editor
 
@@ -74,9 +74,10 @@
     <div class="container">
 
       <?php if (empty($_SESSION['pseudoAdmin'])) {
-        echo '<a class="navbar-brand" href="/blog/">Blog Jean Fortoche</a>';
+       
+        echo '<a class="navbar-brand" href='.dirname(".").'>Blog Jean Fortoche</a>';
       } else {
-        echo '<a class="navbar-brand" href="/blog/">  Bonjour ' . $_SESSION['pseudoAdmin'] . '</a>';
+        echo '<a class="navbar-brand" href='.dirname(".").'>  Bonjour ' . $_SESSION['pseudoAdmin'] . '</a>';
       } ?>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -85,7 +86,7 @@
         <ul class="navbar-nav ml-auto">
 
           <?php if (empty($_SESSION['pseudoAdmin'])) {
-            echo '<li class="nav-item active"><a class="nav-link" href="/blog/">Accueil
+            echo '<li class="nav-item active"><a class="nav-link" href='.dirname(".").'>Accueil
                 <span class="sr-only">(current)</span></a></li>';
           } else {
             echo '
